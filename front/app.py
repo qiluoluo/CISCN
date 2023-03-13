@@ -24,8 +24,7 @@ def index():  # 主页面
         return render_template("cover.html", up=x)
     else:
         pichead = x.photo.data
-        filename = secure_filename('PIC')
-        pichead.save(os.path.join(UPLOAD_PATH, filename))
+        pichead.save(os.path.join(UPLOAD_PATH, "static", "pic", "PIC.jpg"))
         return redirect(url_for("index2"))
 
 

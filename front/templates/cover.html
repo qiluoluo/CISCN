@@ -49,14 +49,16 @@
   <main class="px-3">
     <h2>上传图片</h2>
     <p class="lead">
-       <form action="" method="post" enctype="multipart/form-data">
-        {{ up.csrf_token }}     {#渲染csrf#}
-        <p>{{ up.label }}</p>
+
+
+        <form method="post" enctype="multipart/form-data">
+      {{ up.csrf_token}}
+              <p>{{ up.photo(class="border-white bg-white text-black") }}</p>
       <br><br>
-        <input type="file" class="border-white bg-white text-black">
-        <br><br><br>
-        <input class="btn btn-lg btn-secondary fw-bold border-white bg-white" type="submit" value="提交">
-    </form>
+      {{ up.submit(class="btn btn-lg btn-secondary fw-bold border-white bg-white") }}
+  </form>
+
+
     </p>
   </main>
 

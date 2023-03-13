@@ -4,6 +4,7 @@ from flask_wtf import CSRFProtect
 from werkzeug.utils import secure_filename
 import os
 from flask_wtf.file import FileField, FileRequired, FileAllowed
+from wtforms import SubmitField
 
 UPLOAD_PATH = os.getcwd()
 app = Flask(__name__, template_folder='templates', static_folder='static')
@@ -13,6 +14,7 @@ csrf = CSRFProtect(app)
 
 class UploadData(FlaskForm):
     photo = FileField(label='图片上传', validators=[FileRequired(), FileAllowed(['jpg', 'png'])])
+    submit = SubmitField("提交")
 
 
 @app.route('/', methods=['GET', 'POST'])

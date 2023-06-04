@@ -1,0 +1,16 @@
+Flask~=2.2.3
+torch~=1.12.1+cu116
+torchvision~=0.13.1+cu116
+numpy~=1.23.5
+opencv-python~=4.7.0.72
+config~=0.5.1
+tqdm~=4.64.1
+tensorboardX~=2.6
+scikit-learn~=1.2.1
+matplotlib~=3.7.1
+requests~=2.28.2
+Pillow~=8.3.2
+torchcam~=0.3.2
+tensorboard~=2.12.0
+scikit-image~=0.20.0
+imageio~=2.26.0

@@ -1,7 +1,33 @@
 .container {
   max-width: 960px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0,191,255, 0.075);
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+  border: 2px rgba(255,255,255,0.4) solid;
+  border-bottom: 2px rgba(40,40,40,0.35) solid;
+  border-right: 2px rgba(40,40,40,0.35) solid;
 }
-
+.container-md{
+  color: white;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0,191,255, 0.075);
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+  border: 2px rgba(255,255,255,0.4) solid;
+  border-bottom: 2px rgba(40,40,40,0.35) solid;
+  border-right: 2px rgba(40,40,40,0.35) solid;
+}
+.container-nav{
+    max-width: 960px;
+}
 /*
  * Custom translucent site header
  */
@@ -61,6 +87,10 @@
 
 .flex-equal > * {
   flex: 1;
+}
+
+.py-3{
+  max-width: 100%;
 }
 @media (min-width: 768px) {
   .flex-md-equal > * {

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>深度伪造检测系统 v0.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/cover.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload_video.css') }}">
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">深度伪造检测系统 v0.3</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="/">图片</a>
+        <a class="nav-link active" aria-current="page" href="#">视频</a>
+      </nav>
+    </div>
+  </header>
+{#          <style>#}
+    {#  .bd-placeholder-img {#}
+    {#    font-size: 1.125rem;#}
+    {#    text-anchor: middle;#}
+    {#    -webkit-user-select: none;#}
+    {#    -moz-user-select: none;#}
+    {#    user-select: none;#}
+    {#  }#}
+    {##}
+    {#  @media (min-width: 768px) {#}
+    {#    .bd-placeholder-img-lg {#}
+    {#      font-size: 3.5rem;#}
+    {#    }#}
+    {#  }#}
+    {#  body{#}
+	{#	background: url("https://pic.vjshi.com/2021-07-23/c10478513338ce4989f5fdbaa1b79345/online/50ed0ce962754b14a9ec24c89c48923b.jpg?x-oss-process=style/w1440_h2880") no-repeat center center fixed;#}
+    {#            /*兼容浏览器版本*/#}
+    {#            -webkit-background-size: cover;#}
+    {#            -o-background-size: cover;#}
+    {#            background-size: cover;#}
+	{#}#}
+    {#</style>#}
+
+  <main class="px-3">
+    <div id="drop_zone">
+        <div id="scan-status">拖拽视频到此处</div>
+        <div class="image-container">
+            <video id="preview" src="" alt=""></video>
+            <div class="scan-line"></div>
+        </div>
+        <progress id="progress-bar" value="0" max="100" style="display: none;"></progress>
+        <div id="file-list"></div>
+
+    </div>
+
+  </main>
+
+        <footer class="mt-auto text-white-50">
+        <p>Ya huuuuwouuu</p>
+        </footer>
+    </div>
+
+<script src="{{ url_for('static', filename='js/upload_video.js') }}"></script>
+    </body>
+</html>

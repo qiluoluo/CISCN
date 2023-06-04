@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>深度伪造检测系统 数据大屏</title>
+  <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  <link href="{{ url_for('static', filename='css/comon0.css') }}" rel="stylesheet">
+</head>
+<script>
+	$(window).load(function(){
+             $(".loading").fadeOut()
+            })
+
+/****/
+$(document).ready(function(){
+	var whei=$(window).width()
+	$("html").css({fontSize:whei/20})
+	$(window).resize(function(){
+		var whei=$(window).width()
+	 $("html").css({fontSize:whei/20})
+});
+	});
+
+
+
+
+
+
+</script>
+<script src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/china.js') }}"></script>
+
+<body>
+<div class="canvas" style="opacity: .2">
+    <iframe frameborder="0" src="../static/js/index.html" style="width: 100%; height: 100%"></iframe>
+</div>
+<div class="loading">
+    <div class="loadbox"><img src="{{ url_for('static', filename='picture/loading.gif') }}"> 页面加载中...</div>
+</div>
+<div class="head">
+    <h1>深度伪造检测系统 数据大屏</h1>
+    <div class="weather">
+        <!--        <img src="picture/weather.png"><span>多云转小雨</span>-->
+        <span id="showTime"></span>
+    </div>
+
+    <script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"年"+mt+"月"+day+"日"+"-"+h+"时"+m+"分"+s+"秒";
+       t = setTimeout(time,1000); //设定定时器，循环运行
+    }
+
+
+
+    </script>
+
+
+</div>
+<div class="mainbox">
+    <ul class="clearfix">
+        <li>
+            <div class="boxall" style="height: 5.3rem">
+                <div class="alltitle">原始图像敏感斑块</div>
+                <div class="row">
+                <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["box_images"][1]) }}" alt="暂无图片" style="width: 250px; height: 250px; margin: 4px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                <div class="col">
+                  <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_srm"][0]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                  <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_srm"][1]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                  <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_srm"][2]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                  <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_srm"][3]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                  <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_srm"][4]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                  <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_srm"][5]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                </div>
+              </div>
+                <div class="boxfoot"></div>
+            </div>
+            <div class="boxall" style="height: 4.4rem">
+                <div class="alltitle">噪声图像</div>
+                    <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["srm_images"]) }}" alt="暂无图片" style="width: 250px; height: 250px; margin: 2px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                <div class="boxfoot">
+
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="bar">
+                <div class="barbox">
+                    <ul class="clearfix">
+                        <li class="pulll_left counter">{{ info_dict["real"] }}</li>
+                        <li class="pulll_left counter">{{ info_dict["real_rate"] }}%</li>
+                    </ul>
+                </div>
+                <div class="barbox2">
+                    <ul class="clearfix">
+                        <li class="pulll_left">是否深度伪造</li>
+                        <li class="pulll_left">伪造概率</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map">
+                <div class="map4">
+                    <br>
+                    <br>
+                    <img style="width: 350px; height: 350px; margin-top: 5px;border-radius: 10px;" src="{{ url_for('static', filename=info_dict["raw_images"]) }}"></div>
+                </div>
+
+
+        </li>
+        <li>
+            <div class="boxall" style="height:5.3rem">
+                <div class="alltitle">原始图像敏感斑块</div>
+                <div class="row">
+                <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["box_images"][0]) }}" alt="暂无图片" style="width: 250px; height: 250px; margin: 2px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                    <div class="col">
+                      <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_images"][0]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                      <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_images"][1]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                      <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_images"][2]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                      <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_images"][3]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                      <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_images"][4]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                      <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["win_images"][5]) }}" alt="暂无图片" style="width: 55px; height: 55px; margin: 1px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                    </div>
+                  </div>
+                <div class="boxfoot"></div>
+            </div>
+            <div class="boxall" style="height: 4.2rem;border-radius: 10px;">
+                <div class="alltitle">注意力热力图</div>
+                <img class="col dtbj_pic" src="{{ url_for('static', filename=info_dict["heatmap"]) }}" alt="暂无图片" style="width: 250px; height: 250px; margin: 2px;border-radius: 10px;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);"/>
+                <div class="boxfoot"></div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="back"></div>
+</body>
+</html>
